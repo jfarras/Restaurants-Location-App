@@ -328,6 +328,9 @@
                                                 <rect key="frame" x="0.0" y="455" width="375" height="505"/>
                                             </mapView>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="960" id="hYL-UN-Svo"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
                                 <constraints>
@@ -335,7 +338,6 @@
                                     <constraint firstAttribute="trailing" secondItem="aWU-c3-Tdb" secondAttribute="trailing" id="jRf-cu-Wvs"/>
                                     <constraint firstAttribute="bottom" secondItem="aWU-c3-Tdb" secondAttribute="bottom" id="oov-dA-Yjf"/>
                                     <constraint firstItem="aWU-c3-Tdb" firstAttribute="leading" secondItem="RBM-WZ-vBM" secondAttribute="leading" id="pKS-Md-cug"/>
-                                    <constraint firstItem="aWU-c3-Tdb" firstAttribute="height" secondItem="RBM-WZ-vBM" secondAttribute="height" id="pYp-5v-InQ"/>
                                     <constraint firstItem="aWU-c3-Tdb" firstAttribute="top" secondItem="RBM-WZ-vBM" secondAttribute="top" id="wzi-JW-JIG"/>
                                 </constraints>
                             </scrollView>
