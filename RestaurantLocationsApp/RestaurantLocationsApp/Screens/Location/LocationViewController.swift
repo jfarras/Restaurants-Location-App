@@ -8,15 +8,16 @@
 
 import UIKit
 
-class LocationViewController: ViewController {
+class LocationViewController: UIViewController {
 
-    @IBOutlet weak var allowButton: UIButton!
-    @IBOutlet weak var denyButton: UIButton!
+    @IBOutlet weak var locationView: LocationView!
+    var locationService: LocationService?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+     
     }
+   
     
 
   

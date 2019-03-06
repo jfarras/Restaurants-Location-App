@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -13,8 +12,8 @@
         <!--Location View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LocationViewController" customModule="RestaurantLocationsApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <viewController storyboardIdentifier="LocationViewController" id="BYZ-38-t0r" customClass="LocationViewController" customModule="RestaurantLocationsApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="LocationView" customModule="RestaurantLocationsApp" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -60,11 +59,17 @@
                                                 <integer key="value" value="25"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="allowAction:" destination="8bC-Xf-vdC" eventType="touchUpInside" id="C0g-l4-YAL"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zt7-Lc-fLQ">
                                         <rect key="frame" x="32" y="66" width="311" height="50"/>
                                         <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="No"/>
+                                        <connections>
+                                            <action selector="denyAction:" destination="8bC-Xf-vdC" eventType="touchUpInside" id="tIk-8p-E6h"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <edgeInsets key="layoutMargins" top="8" left="32" bottom="8" right="32"/>
@@ -81,10 +86,13 @@
                             <constraint firstItem="9Tx-w7-xGw" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.5" id="wNg-ec-sfl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <connections>
+                            <outlet property="allowButton" destination="cbe-qx-4wK" id="7Eq-8f-yos"/>
+                            <outlet property="denyButton" destination="Zt7-Lc-fLQ" id="jLT-Rj-6ss"/>
+                        </connections>
                     </view>
                     <connections>
-                        <outlet property="allowButton" destination="cbe-qx-4wK" id="64J-FW-Fof"/>
-                        <outlet property="denyButton" destination="Zt7-Lc-fLQ" id="Lt7-g8-6GK"/>
+                        <outlet property="locationView" destination="8bC-Xf-vdC" id="CO0-WW-40a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -100,7 +108,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RestaurantCell" rowHeight="260" id="o5H-E5-df5">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RestaurantCell" rowHeight="260" id="o5H-E5-df5" customClass="RestaurantTableViewCell" customModule="RestaurantLocationsApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="260"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="o5H-E5-df5" id="mPr-Rf-l0D">
@@ -165,6 +173,10 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="locationLabel" destination="WTY-AF-keh" id="oRT-Fs-Xze"/>
+                                    <outlet property="markerImageView" destination="fJR-we-wM9" id="7iW-Zd-1QG"/>
+                                    <outlet property="restaurantImageView" destination="4Ij-hb-U1p" id="9k4-qs-TQ3"/>
+                                    <outlet property="restaurantName" destination="Br7-fH-4RD" id="FXZ-aW-h5W"/>
                                     <segue destination="J7W-SE-wOF" kind="show" id="FEX-wp-PTZ"/>
                                 </connections>
                             </tableViewCell>
@@ -205,8 +217,8 @@
         <!--Title-->
         <scene sceneID="LZy-KA-IQE">
             <objects>
-                <viewController id="J7W-SE-wOF" customClass="ViewController" customModule="I" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="UCe-yw-t04">
+                <viewController id="J7W-SE-wOF" customClass="DetailFoodViewController" customModule="RestaurantLocationsApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UCe-yw-t04" customClass="DetailsFoodVIew" customModule="RestaurantLocationsApp" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -362,6 +374,15 @@
                             <constraint firstItem="BaG-HY-XI9" firstAttribute="bottom" secondItem="RBM-WZ-vBM" secondAttribute="bottom" id="rGO-sp-WPQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="BaG-HY-XI9"/>
+                        <connections>
+                            <outlet property="collectionView" destination="SQY-2U-rlH" id="t3d-mh-bIw"/>
+                            <outlet property="locationLabel" destination="Bks-0A-lb1" id="SeG-Y9-CVq"/>
+                            <outlet property="mapView" destination="RBM-WZ-vBM" id="dt6-Tz-oiX"/>
+                            <outlet property="pageControl" destination="WDY-nY-K6j" id="wcK-x0-gLQ"/>
+                            <outlet property="priceLabel" destination="n75-Iu-bnd" id="zlV-V9-vnG"/>
+                            <outlet property="ratingLabel" destination="3ga-mZ-bJK" id="gNZ-55-0y3"/>
+                            <outlet property="timeLabel" destination="wbI-7E-oIE" id="6Kv-fL-EY1"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Title" largeTitleDisplayMode="never" id="TKB-S3-oeT"/>
                     <size key="freeformSize" width="375" height="1024"/>
