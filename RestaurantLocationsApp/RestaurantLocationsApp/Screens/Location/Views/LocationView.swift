@@ -13,6 +13,7 @@ import UIKit
     @IBOutlet weak var denyButton: UIButton!
     
     var didTapAllow: (() -> Void)?
+    
     @IBAction func allowAction(_ sender: UIButton) {
         didTapAllow?()
     }

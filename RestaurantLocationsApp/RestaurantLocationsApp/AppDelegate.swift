@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
-      /*  switch locationService.status {
+        switch locationService.status {
             case .notDetermined, .denied, .restricted:
                 let locationViewController =
                 storyboard.instantiateViewController(withIdentifier: "LocationViewController") as? LocationViewController
@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         default:
             assertionFailure()
         }
-        window?.makeKeyAndVisible()*/
+        window?.makeKeyAndVisible()
         return true
     }
 

@@ -16,6 +16,9 @@ class LocationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
      
+        locationView.didTapAllow = { [weak self] in
+            print("olaa")
+        }
     }
    
     
